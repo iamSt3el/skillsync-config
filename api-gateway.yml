@@ -1,13 +1,11 @@
 server:
-  port: 8080
+  port: 9090
 
-spring:
-  cloud:
-    gateway:
-      server:
-        webmvc:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
-          routes:
+jwt:
+  secret: mysupersecuresecretkeywhichisatleast32characterslong
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
