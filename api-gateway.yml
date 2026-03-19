@@ -32,3 +32,9 @@ spring:
               - Path=/notifications/**
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
