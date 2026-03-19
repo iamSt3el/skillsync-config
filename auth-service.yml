@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/skillsync_auth?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 8081
+
+jwt:
+  secret: mysupersecuresecretkeywhichisatleast32characterslong
+  expiration: 86400000
+  refresh-expiration: 604800000
