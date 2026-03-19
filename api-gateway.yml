@@ -1,40 +1,8 @@
 server:
   port: 9090
 
-spring:
-  cloud:
-    gateway:
-      mvc:
-        routes:
-          - id: auth-service
-            uri: lb://auth-service
-            predicates:
-              - Path=/auth/**
+server:
+  port: 9090
 
-          - id: mentor-service
-            uri: lb://mentor-service
-            predicates:
-              - Path=/mentors/**
-
-          - id: skill-service
-            uri: lb://skill-service
-            predicates:
-              - Path=/skills/**
-
-          - id: group-service
-            uri: lb://group-service
-            predicates:
-              - Path=/groups/**
-
-          - id: notification-service
-            uri: lb://notification-service
-            predicates:
-              - Path=/notifications/**
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
