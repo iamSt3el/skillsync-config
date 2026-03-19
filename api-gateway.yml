@@ -4,10 +4,31 @@ server:
 spring:
   cloud:
     gateway:
-      server:
-        webmvc:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
-          routes:
+      mvc:
+        routes:
+          - id: auth-service
+            uri: lb://auth-service
+            predicates:
+              - Path=/auth/**
+
+          - id: mentor-service
+            uri: lb://mentor-service
+            predicates:
+              - Path=/mentors/**
+
+          - id: skill-service
+            uri: lb://skill-service
+            predicates:
+              - Path=/skills/**
+
+          - id: group-service
+            uri: lb://group-service
+            predicates:
+              - Path=/groups/**
+
+          - id: notification-service
+            uri: lb://notification-service
+            predicates:
+              - Path=/notifications/**
+jwt:
+  secret: mysupersecuresecretkeywhichisatleast32characterslong
