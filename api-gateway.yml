@@ -7,15 +7,15 @@ spring:
   cloud:
     gateway:
       routes:
-        # 1. Auth Service Route
-        - id: auth-service
-          uri: lb://auth-service
+        # 1. User/Auth Service (Profile, Admin, Internal)
+        - id: user-service
+          uri: lb://user-service
           predicates:
-            - Path=/api/auth/**
+            - Path=/api/users/**, /api/admin/users/**, /api/internal/users/**
           filters:
             - StripPrefix=1
 
-        # 2. Mentor Service Route
+        # 2. Mentor Service (Approval, Listings)
         - id: mentor-service
           uri: lb://mentor-service
           predicates:
@@ -23,7 +23,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        # 3. Session Service Route
+        # 3. Session Service
         - id: session-service
           uri: lb://session-service
           predicates:
@@ -31,7 +31,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        # 4. Skill Service Route
+        # 4. Skill Service
         - id: skill-service
           uri: lb://skill-service
           predicates:
@@ -41,12 +41,6 @@ spring:
 
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 
 eureka:
   client:
