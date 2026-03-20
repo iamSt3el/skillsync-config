@@ -22,7 +22,6 @@ spring:
             - Path=/api/mentors/**
           filters:
             - StripPrefix=1
-            - AddRequestHeader=X-Gateway-Request, SkillSyncSecret2026 # The handshake secret
 
         # 3. Session Service Route
         - id: session-service
@@ -31,7 +30,6 @@ spring:
             - Path=/api/sessions/**
           filters:
             - StripPrefix=1
-            - AddRequestHeader=X-Gateway-Request, SkillSyncSecret2026
 
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
