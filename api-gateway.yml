@@ -7,7 +7,15 @@ spring:
   cloud:
     gateway:
       routes:
-        # 1. User/Auth Service (Profile, Admin, Internal)
+        # 1. AUTH SERVICE (Login, Register, Refresh)
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+
+        # 2. USER SERVICE (Profile, Admin Actions, Internal)
         - id: user-service
           uri: lb://user-service
           predicates:
@@ -15,7 +23,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        # 2. Mentor Service (Approval, Listings)
+        # 3. MENTOR SERVICE
         - id: mentor-service
           uri: lb://mentor-service
           predicates:
@@ -23,7 +31,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        # 3. Session Service
+        # 4. SESSION SERVICE
         - id: session-service
           uri: lb://session-service
           predicates:
@@ -31,7 +39,7 @@ spring:
           filters:
             - StripPrefix=1
 
-        # 4. Skill Service
+        # 5. SKILL SERVICE
         - id: skill-service
           uri: lb://skill-service
           predicates:
