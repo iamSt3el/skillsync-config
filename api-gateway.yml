@@ -13,7 +13,7 @@ spring:
           predicates:
             - Path=/api/auth/**
           filters:
-            - StripPrefix=1 # Changes /api/auth/login -> /auth/login
+            - StripPrefix=1
 
         # 2. Mentor Service Route
         - id: mentor-service
@@ -28,6 +28,14 @@ spring:
           uri: lb://session-service
           predicates:
             - Path=/api/sessions/**
+          filters:
+            - StripPrefix=1
+
+        # 4. Skill Service Route
+        - id: skill-service
+          uri: lb://skill-service
+          predicates:
+            - Path=/api/skills/**
           filters:
             - StripPrefix=1
 
