@@ -1,6 +1,10 @@
 server:
   port: 8083
 
+springdoc:
+  api-docs:
+    path: /mentors/v3/api-docs
+
 spring:
   cloud:
     openfeign:

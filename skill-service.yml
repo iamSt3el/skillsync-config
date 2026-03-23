@@ -1,0 +1,6 @@
+server:
+  port: 8084
+
+springdoc:
+  api-docs:
+    path: /skills/v3/api-docs

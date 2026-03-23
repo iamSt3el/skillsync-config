@@ -1,5 +1,9 @@
 server:
   port: 8088
+
+springdoc:
+  api-docs:
+    path: /notifications/v3/api-docs
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/notification-service?createDatabaseIfNotExist=true
