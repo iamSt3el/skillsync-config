@@ -1,11 +1,68 @@
+# server:
+#   port: 9090
+
+# jwt:
+#   secret: mysupersecuresecretkeywhichisatleast32characterslong
+
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "*"
+
 server:
   port: 9090
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        # 1. AUTH SERVICE (Login, Register, Refresh)
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+
+        # 2. USER SERVICE (Profile, Admin Actions, Internal)
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**, /api/admin/users/**, /api/internal/users/**
+          filters:
+            - StripPrefix=1
+
+        # 3. MENTOR SERVICE
+        - id: mentor-service
+          uri: lb://mentor-service
+          predicates:
+            - Path=/api/mentors/**
+          filters:
+            - StripPrefix=1
+
+        # 4. SESSION SERVICE
+        - id: session-service
+          uri: lb://session-service
+          predicates:
+            - Path=/api/sessions/**
+          filters:
+            - StripPrefix=1
+
+        # 5. SKILL SERVICE
+        - id: skill-service
+          uri: lb://skill-service
+          predicates:
+            - Path=/api/skills/**
+          filters:
+            - StripPrefix=1
 
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
