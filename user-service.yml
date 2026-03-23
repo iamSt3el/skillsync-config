@@ -1,17 +1,17 @@
-spring:
-  cloud:
-    config:
-      enabled: false
-  datasource:
-    url: jdbc:mysql://localhost:3306/user_service?createDatabaseIfNotExist=true
-    username: root
-    password: Kan@1904
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+# spring:
+#   cloud:
+#     config:
+#       enabled: false
+#   datasource:
+#     url: jdbc:mysql://localhost:3306/user_service?createDatabaseIfNotExist=true
+#     username: root
+#     password: Kan@1904
+#     driver-class-name: com.mysql.cj.jdbc.Driver
+#   rabbitmq:
+#     host: localhost
+#     port: 5672
+#     username: guest
+#     password: guest
 
-server:
-  port: 8082
+# server:
+#   port: 8082
