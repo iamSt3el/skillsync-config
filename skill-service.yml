@@ -1,3 +1,6 @@
+server:
+  port: 8084
+
 spring:
   cloud:
     config:
@@ -7,15 +10,7 @@ spring:
     username: root
     password: Kan@1904
     driver-class-name: com.mysql.cj.jdbc.Driver
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-
-server:
-  port: 8082
 
 springdoc:
   api-docs:
-    path: /users/v3/api-docs
+    path: /skills/v3/api-docs
