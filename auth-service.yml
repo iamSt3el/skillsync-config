@@ -7,6 +7,11 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 8081
@@ -14,12 +19,6 @@ server:
 springdoc:
   api-docs:
     path: /auth/v3/api-docs
-
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: guest
-    password: guest
 
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
