@@ -15,6 +15,12 @@ springdoc:
   api-docs:
     path: /auth/v3/api-docs
 
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
 jwt:
   secret: mysupersecuresecretkeywhichisatleast32characterslong
   expiration: 86400000
