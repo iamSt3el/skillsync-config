@@ -30,3 +30,5 @@ springdoc:
         url: /groups/v3/api-docs
       - name: skill-service
         url: /skills/v3/api-docs
+      - name: review-service
+        url: /reviews/v3/api-docs
