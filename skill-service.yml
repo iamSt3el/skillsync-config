@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: 8084
 
 spring:
   cloud:
@@ -9,8 +9,8 @@ spring:
     url: jdbc:mysql://localhost:3306/user_service?createDatabaseIfNotExist=true
     username: root
     password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver 
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 springdoc:
   api-docs:
-    path: /sessions/v3/api-docs
+    path: /skills/v3/api-docs
