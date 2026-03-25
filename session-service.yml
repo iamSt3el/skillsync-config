@@ -1,22 +1,22 @@
 server:
-  port: 8088
+  port: 8085
 
-springdoc:
-  api-docs:
-    path: /notifications/v3/api-docs
 spring:
   cloud:
     config:
       enabled: false
   datasource:
-    url: jdbc:mysql://localhost:3306/notification-service?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/session_service?createDatabaseIfNotExist=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-resend:
-  api-key: re_dR6prpGk_7t3ZJrqqgjw7JY9XoYCiR2Na
+
+springdoc:
+  api-docs:
+    path: /sessions/v3/api-docs

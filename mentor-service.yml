@@ -1,11 +1,17 @@
 server:
   port: 8083
 
+springdoc:
+  api-docs:
+    path: /mentors/v3/api-docs
+
 spring:
   cloud:
     openfeign:
       circuitbreaker:
         enabled: true
+    config:
+      enabled: false
   datasource:
     url: jdbc:mysql://localhost:3306/mentor_service?createDatabaseIfNotExist=true
     username: root

@@ -2,17 +2,11 @@ server:
   port: 9090
   jwt:
     secret: mysupersecuresecretkeywhichisatleast32characterslong
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: "*"
-
-spring:
-  config:
-    import: "optional:configserver:http://localhost:8888"
-  application:
-    name: api-gateway
+#  management:
+#    endpoints:
+#      web:
+#        exposure:
+#          include: "*"
 
 eureka:
   client:
