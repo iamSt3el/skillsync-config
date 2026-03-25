@@ -2,13 +2,16 @@ server:
   port: 9090
 
 jwt:
-  secret: mysupersecuresecretkeywhichisatleast32characterslong
+  secret: ${JWT_SECRET:mysupersecuresecretkeywhichisatleast32characterslong}
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "health,info"
+  endpoint:
+    health:
+      show-details: never
 
 springdoc:
   api-docs:
