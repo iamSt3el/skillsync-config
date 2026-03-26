@@ -1,26 +1,64 @@
+# server:
+#   port: 9090
+#   jwt:
+#     secret: mysupersecuresecretkeywhichisatleast32characterslong
+# #  management:
+# #    endpoints:
+# #      web:
+# #        exposure:
+# #          include: "*"
+
+# eureka:
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka
+
+# management:
+#   endpoints:
+#     web:
+#       exposure:
+#         include: "*"
+
+# jwt:
+#   secret: mysupersecuresecretkeywhichisatleast32characterslong
+# springdoc:
+#   api-docs:
+#     path: /v3/api-docs
+#   swagger-ui:
+#     path: /swagger-ui.html
+#     urls:
+#       - name: user-service
+#         url: /users/v3/api-docs
+#       - name: auth-service
+#         url: /auth/v3/api-docs
+#       - name: mentor-service
+#         url: /mentors/v3/api-docs
+#       - name: session-service
+#         url: /sessions/v3/api-docs
+#       - name: notification-service
+#         url: /notifications/v3/api-docs
+#       - name: group-service
+#         url: /groups/v3/api-docs
+#       - name: skill-service
+#         url: /skills/v3/api-docs
+#       - name: review-service
+#         url: /reviews/v3/api-docs
+
 server:
   port: 9090
-  jwt:
-    secret: mysupersecuresecretkeywhichisatleast32characterslong
-#  management:
-#    endpoints:
-#      web:
-#        exposure:
-#          include: "*"
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+jwt:
+  secret: ${JWT_SECRET:mysupersecuresecretkeywhichisatleast32characterslong}
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: "health,info,prometheus"
+  endpoint:
+    health:
+      show-details: never
 
-jwt:
-  secret: mysupersecuresecretkeywhichisatleast32characterslong
 springdoc:
   api-docs:
     path: /v3/api-docs

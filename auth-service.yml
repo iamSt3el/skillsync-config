@@ -3,10 +3,15 @@ spring:
     config:
       enabled: false
   datasource:
-    url: jdbc:mysql://localhost:3306/skillsync_auth?createDatabaseIfNotExist=true
-    username: root
-    password: root
+    url: jdbc:mysql://mysql:3306/skillsync_auth?createDatabaseIfNotExist=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASS:guest}
 
 server:
   port: 8081
@@ -20,10 +25,10 @@ jwt:
   expiration: 86400000
   refresh-expiration: 604800000
 
-management:
-  tracing:
-    sampling:
-      probability: 1.0
-  zipkin:
-    tracing:
-      endpoint: http://localhost:9411/api/v2/spans
+# management:
+#   tracing:
+#     sampling:
+#       probability: 1.0
+#   zipkin:
+#     tracing:
+#       endpoint: http://localhost:9411/api/v2/spans
