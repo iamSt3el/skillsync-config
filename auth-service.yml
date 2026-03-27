@@ -4,14 +4,14 @@ spring:
       enabled: false
   datasource:
     url: jdbc:mysql://mysql:3306/skillsync_auth?createDatabaseIfNotExist=true
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:root}
+    username: root
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: ${RABBITMQ_USER:guest}
-    password: ${RABBITMQ_PASS:guest}
+    username: guest
+    password: guest
 
 server:
   port: 8081
