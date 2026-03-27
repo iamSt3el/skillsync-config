@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      enabled: false
+      enabled: true
   datasource:
     url: jdbc:mysql://mysql:3306/skillsync_auth?createDatabaseIfNotExist=true
     username: root
