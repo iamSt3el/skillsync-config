@@ -1,0 +1,29 @@
+server:
+  port: 8089
+
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://mysql:3306/payment_service?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+razorpay:
+  key:
+    id: ${RAZORPAY_KEY_ID}
+    secret: ${RAZORPAY_KEY_SECRET}
+
+springdoc:
+  api-docs:
+    path: /payments/v3/api-docs
+  swagger-ui:
+    path: /payments/swagger-ui.html
