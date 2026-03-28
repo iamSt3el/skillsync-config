@@ -35,5 +35,5 @@ springdoc:
         url: /skills/v3/api-docs
       - name: review-service
         url: /reviews/v3/api-docs
-      - name: notification-service
+      - name: payment-service
         url: /payments/v3/api-docs
