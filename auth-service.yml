@@ -24,3 +24,20 @@ jwt:
   secret: ${JWT_SECRET:mysupersecuresecretkeywhichisatleast32characterslong}
   expiration: 3600000
   refresh-expiration: 86400000
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+app:
+  frontend-url: ${FRONTEND_URL:http://localhost:4200}
