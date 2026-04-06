@@ -1,6 +1,9 @@
 server:
   port: 8088
 
+jwt:
+  secret: ${JWT_SECRET:mysupersecuresecretkeywhichisatleast32characterslong}
+
 springdoc:
   api-docs:
     path: /notifications/v3/api-docs
