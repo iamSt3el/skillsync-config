@@ -5,6 +5,9 @@ spring:
   cloud:
     config:
       enabled: false
+    openfeign:
+      circuitbreaker:
+        enabled: true
   datasource:
     url: jdbc:mysql://mysql:3306/session_service?createDatabaseIfNotExist=true
     username: root
