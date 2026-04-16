@@ -37,7 +37,7 @@ springdoc:
 
 jwt:
   secret: ${JWT_SECRET:mysupersecuresecretkeywhichisatleast32characterslong}
-  expiration: 3600000
+  expiration: 120000
   refresh-expiration: 86400000
 
 app:
