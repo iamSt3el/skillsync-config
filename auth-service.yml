@@ -1,17 +1,32 @@
 spring:
   cloud:
     config:
-      enabled: true
+      enabled: false
   datasource:
     url: jdbc:mysql://localhost:3306/skillsync_auth?createDatabaseIfNotExist=true
-    username: root
-    password: root
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
   rabbitmq:
     host: rabbitmq
     port: 5672
-    username: guest
-    password: guest
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASS:guest}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
 
 server:
   port: 8081
@@ -21,14 +36,17 @@ springdoc:
     path: /auth/v3/api-docs
 
 jwt:
-  secret: mysupersecuresecretkeywhichisatleast32characterslong
-  expiration: 86400000
-  refresh-expiration: 604800000
+  secret: ${JWT_SECRET:mysupersecuresecretkeywhichisatleast32characterslong}
+  expiration: 120000
+  refresh-expiration: 86400000
 
-# management:
-#   tracing:
-#     sampling:
-#       probability: 1.0
-#   zipkin:
-#     tracing:
-#       endpoint: http://localhost:9411/api/v2/spans
+app:
+  frontend-url: ${FRONTEND_URL:http://localhost:4200}
+
+google:
+  client-id: ${GOOGLE_CLIENT_ID:placeholder-google-client-id}
+
+management:
+  health:
+    mail:
+      enabled: false
