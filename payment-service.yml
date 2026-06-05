@@ -19,8 +19,8 @@ spring:
 
 razorpay:
   key:
-    id: ${RAZORPAY_KEY_ID}
-    secret: ${RAZORPAY_KEY_SECRET}
+    id: rzp_test_SxxSpV6zknokAe
+    secret: y6xd4TGiwNM05BvZa7hYR0Qp
 
 springdoc:
   api-docs:
